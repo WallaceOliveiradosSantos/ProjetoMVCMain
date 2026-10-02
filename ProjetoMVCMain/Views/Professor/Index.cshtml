@@ -1,0 +1,54 @@
+@model IEnumerable<ProjetoMVCMain.Models.Professor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Especialidade)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Salario)
+            </td>
+                <td>
+                    <a asp-action="Edit" asp-route-codigo="@item.Codigo">Edit</a> |
+                    <a asp-action="Details" asp-route-codigo="@item.Codigo">Details</a> |
+                    <a asp-action="Delete" asp-route-codigo="@item.Codigo">Delete</a>
+                </td>
+
+        </tr>
+}
+    </tbody>
+</table>
